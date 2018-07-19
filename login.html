@@ -9,14 +9,13 @@
         var id = document.getElementById("input_id").value
         var pw = document.getElementById("input_pw").value
 
-        if (id == "devleti")
+        if (id == "devleti" && pw == "a")
           {
-            if (pw == "a")
-            {
               window.location.href = 'logged_in.html';
-            }
           }
-
+        else {
+          document.write("BAAAAAAAAAAAAAAAAAAAM WRONG!!!!!!!!")
+        }
       }
     </script>
   </head>
