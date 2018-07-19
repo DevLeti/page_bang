@@ -17,6 +17,39 @@
           document.getElementById("check_result").innerHTML = "错误"
         }
       }
+
+      function check_space()
+      {
+        var id_input = document.getElementById("input_id").value
+        if (id_input == "")
+        {
+          document.getElementById("id_space_result").innerHTML = "必须要填用户名！"
+        }
+        else if (id_input.length < 5)
+        {
+          document.getElementById("id_space_result").innerHTML = "用户名太短了！"
+        }
+        else
+        {
+          document.getElementById("id_space_result").innerHTML = "用户名OK！"
+        }
+      }
+        function check_pw_length()
+        {
+          var pw_input = document.getElementById("input_pw").value
+          if (pw_input == "")
+          {
+            document.getElementById("pw_check_result").innerHTML = "必须要设定密码！"
+          }
+          else if (pw_input.length < 5)
+          {
+            document.getElementById("pw_check_result").innerHTML = "密码太短了！"
+          }
+          else
+          {
+            document.getElementById("pw_check_result").innerHTML = "密码OK！"
+          }
+        }
     </script>
   </head>
   <body>
@@ -24,31 +57,32 @@
     <div style = "border-radius : 8px; width:70%; height: 55%; min-height: 370px; max-height:520px; min-width: 310px; max-width: 460px; position : relative; background-color:#AADC31; text-align:right;  margin : 0 auto;">
       <br>
       <br>
-      <br>
       <p style="text-align : center; font-size : 150%; float : bold;">GoGGLE注册</p>
       <br>
+      <p id ="id_space_result", style ="text-align : center"></p>
       <table style ="margin-left: auto; margin-right: auto;">
         <tr>
           <td><span style="font-size : 120%;">用户名 : </span></td>
-          <td><input type="string" id = "input_id" name = "register_id" style="width : 150px;"></td>
+          <td><input type="string" id = "input_id" name = "register_id" style="width : 150px;" onblur = "check_space()"></td>
           <td><button name = "check_id">重复确认</button></td>
         </tr>
         <tr>
           <td><span style="font-size : 120%;">密码 : </span></td>
-          <td><input type="password" id = "input_pw" name = "register_pw" style="width : 150px;"></td>
+          <td><input type="password" id = "input_pw" name = "register_pw" style="width : 150px;" onblur = "check_pw_length()"></td>
+          <td><span style="font-size : 120%;" id = "pw_check_result"></span></td>
         </tr>
         <tr>
           <td><span style="font-size : 120%;">确认密码 : </span></td>
           <td><input type="password" id = "input_pw_check" style="width : 150px;" onblur = "pwcheck()"></td>
-          <td><span id = "check_result"></span style = "font-size : 120%"></td>
+          <td><span id = "check_result" style = "font-size : 120%"></span></td>
         </tr>
         <tr>
-          <td><span style="font-size : 120%;">邮箱 : </span></td>
-          <td><input type="string" id = "input_email" name = "register_em"style="width : 150px;"></td>
+          <td><span style="font-size : 120%;"  >邮箱 : </span></td>
+          <td><input type="string" id = "input_email" name = "register_em"style="width : 150px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"></td>
         </tr>
         <tr>
           <td><span style="font-size : 120%;">电话号码 : </span></td>
-          <td><input type="string" id = "input_pn_1" name = "register_pn" style="width : 150px;"></td>
+          <td><input type="string" id = "input_pn_1" name = "register_pn" style="width : 150px;" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"></td>
         </tr>
       </table>
        <br>
