@@ -27,9 +27,19 @@
       <img src="Goggle.png" width="272" height="92">
       <br>
       <br>
-      <span style="font-size : 120%;">用户名 : </span> <input type="string" id = "input_id" name = "to_server_id"style="width : 150px; margin-left:10px;"><br>
-      <span style="font-size : 120%;">密码 : </span> <input type="password" id = "input_pw" name = "to_server_pw"style="width : 150px;"><br>
       <br>
+      <br>
+      <table style ="margin-left: auto; margin-right: auto;">
+        <tr>
+          <td><span style="font-size : 120%;">用户名 : </span></td>
+          <td><input type="string" id = "input_id" name = "to_server_id"style="width : 150px; margin-left:10px;"></td>
+        </tr>
+        <tr>
+          <td><span style="font-size : 120%;">密码 : </span></td>
+          <td><input type="password" id = "input_pw" name = "to_server_pw"style="width : 150px;"></td>
+        </tr>
+      </table>
+       <br>
       <br>
       <button id = "register" onclick="location.href='register.html'"> 我想注册!</button><span>          </span><button id = "log_in" onclick = 'login_check()'>我想登录!</button>
       <p id = "login_failed"></p>
