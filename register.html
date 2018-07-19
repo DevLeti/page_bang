@@ -2,24 +2,59 @@
 <html lang="cn" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Register</title>
+    <script>
+      function pwcheck()
+      {
+        var pw1 = document.getElementById("input_pw").value
+        var pw2 = document.getElementById("input_pw_check").value
+        if(pw1 == pw2)
+        {
+          document.getElementById("check_result").innerHTML = "相同"
+        }
+        else
+        {
+          document.getElementById("check_result").innerHTML = "错误"
+        }
+      }
+    </script>
   </head>
   <body>
     <div style = "min-height : 46px; max-height:42px; margin: 0 auto;"></div>
-    <div style = "width:70%; height: 55%; min-height: 370px; max-height:520px; min-width: 310px; max-width: 460px; position : relative; background-color:#AADC31; text-align:center;  margin : 0 auto;">
+    <div style = "border-radius : 8px; width:70%; height: 55%; min-height: 370px; max-height:520px; min-width: 310px; max-width: 460px; position : relative; background-color:#AADC31; text-align:center;  margin : 0 auto;">
       <br>
       <br>
       <br>
       <p style="text-align : center; font-size : 150%; float : bold;">GoGGLE注册</p>
       <br>
-      <span style="font-size : 120%;">用户名 : </span> <input type="string" id = "input_id" name = "register_id" style="width : 150px; margin-left:10px;"><br>
-      <span style="font-size : 120%;">密码 : </span> <input type="password" id = "input_pw" name = "register_pw" style="width : 150px;"><br>
-      <span style="font-size : 120%;">确认密码 : </span> <input type="password" id = "input_pw_check" style="width : 150px;" onblur = "pwcheck()"><br>
-      <span style="font-size : 120%;">邮箱 : </span> <input type="string" id = "input_email" name = "register_em"style="width : 150px;"><br>
-      <span style="font-size : 120%;">电话号码 : </span> <input type="number" id = "input_pn_1" name = "register_pn_1" style="width : 50px;">  -  <input type="number" id = "input_pn_2" name = "register_pn_2" style="width : 50px;">  -  <input type="number" id = "input_pn_3" name = "register_pn_3" style="width : 50px;"><br>
-      <br>
-      <br>
-      <br>
+      <table style ="margin-left: auto; margin-right: auto;">
+        <tr>
+          <td><span style="font-size : 120%;">用户名 : </span></td>
+          <td><input type="string" id = "input_id" name = "register_id" style="width : 150px;"></td>
+        </tr>
+        <tr>
+          <td><span style="font-size : 120%;">密码 : </span></td>
+          <td><input type="password" id = "input_pw" name = "register_pw" style="width : 150px;"></td>
+        </tr>
+        <tr>
+          <td><span style="font-size : 120%;">确认密码 : </span></td>
+          <td><input type="password" id = "input_pw_check" style="width : 150px;" onblur = "pwcheck()"></td>
+          <td><span id = "check_result"></span style = "font-size : 120%"></td>
+        </tr>
+        <tr>
+          <td><span style="font-size : 120%;">邮箱 : </span></td>
+          <td><input type="string" id = "input_email" name = "register_em"style="width : 150px;"></td>
+        </tr>
+        <tr>
+          <td><span style="font-size : 120%;">电话号码 : </span></td>
+          <td><input type="string" id = "input_pn_1" name = "register_pn" style="width : 150px;"></td>
+        </tr>
+      </table>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
       <br>
       <button id = "register_to_server" onclick="location.href='register.html'"> 注册!</button><span>          </span><button id = "log_in" onclick="location.href='login.html'">取消</button>
       <p style="text-align : center; font-size : 70%;">©2018 GoGGLE 使用沟谷前必读 意见反馈 韩ICP证032152号  韩公网安备1101423000001号 </p>
