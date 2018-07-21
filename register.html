@@ -59,6 +59,7 @@
       <br>
       <p style="text-align : center; font-size : 150%; float : bold;">GoGGLE注册</p>
       <br>
+      <form method="POST" action="apis/add_user.php">
       <p id ="id_space_result", style ="text-align : center"></p>
       <table style ="margin-left: auto; margin-right: auto;">
         <tr>
@@ -93,11 +94,12 @@
       <br>
       <table style ="margin-left: auto; margin-right: auto;">
         <tr>
-          <td><button id = "register_to_server" onclick="location.href='register.html'">确认后注册!</button></td>
+          <td><button id = "register_to_server" type ="submit">确认后注册!</button></td>
           <td><span>　　</span></td>
           <td><button id = "log_in" onclick="location.href='login.html'">取消</button></td>
         </tr>
       </table>
+    </form>
       <p style="text-align : center; font-size : 70%;">©2018 GoGGLE 使用沟谷前必读 意见反馈 韩ICP证032152号  韩公网安备1101423000001号 </p>
 
     </div>

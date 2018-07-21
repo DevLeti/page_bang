@@ -26,17 +26,16 @@
 {
   float : left;
   width : 150px;
+  height : 360px;
   background-color : lightgreen;
-  padding : 13% 0px;
 }
 
 .content
 {
   float: left;
-  width: 600px;
+  width: 650px;
   background-color : red;
-  padding : 11% 0px;
-  text-align : center;
+  padding : 150px 0px;
 }
 
 ul
