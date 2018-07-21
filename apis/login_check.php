@@ -33,9 +33,14 @@ if($result = mysqli_query($db, $sql))
         $row = mysqli_fetch_assoc($result);
         if($row["password"] == $pass_encode) // 로그인 성공
         {
+          if($id == "devleti")
+          {
+            echo "<script>alert('You are admin.');</script>";
+            echo "<script>location.href='../logged_in_admin.html';</script>";
+          }
             // 리디렉션
             echo "<script>alert('Login Succeed.');</script>";
-            echo "<script>location.href='http://www.naver.com';</script>";
+            echo "<script>location.href='https://www.naver.com';</script>";
         }
         else
         {
