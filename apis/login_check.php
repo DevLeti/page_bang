@@ -1,7 +1,8 @@
 <?php
 $id=$_POST['id'];
 $pass=$_POST['pw'];
-echo $id.$pass;
+
+//echo $id.$pass;
 
 /*if('devleti' == $email and 'a' == $pass)
   echo"<script>
@@ -21,6 +22,10 @@ $pass_encode = md5($pass);
 $table_name = "user";
 $sql = "SELECT password FROM $table_name WHERE name='$id'";
 
+$sql_permission = "SELECT permission FROM $table_name WHERE name='$id'";
+$result_permission = mysqli_query($db, $sql_permission);
+$row_permission = mysqli_fetch_assoc($result_permission);
+
 if($result = mysqli_query($db, $sql))
 {
     if(mysqli_num_rows($result) == 0)
@@ -33,14 +38,22 @@ if($result = mysqli_query($db, $sql))
         $row = mysqli_fetch_assoc($result);
         if($row["password"] == $pass_encode) // 로그인 성공
         {
-          if($id == "devleti")
+          if($row_permission["permission"] == "ADMIN")
           {
             echo "<script>alert('You are admin.');</script>";
             echo "<script>location.href='../logged_in_admin.html';</script>";
           }
-            // 리디렉션
+
+          elseif($row_permission["permission"] == "TRUE")
+          {
             echo "<script>alert('Login Succeed.');</script>";
-            echo "<script>location.href='https://www.naver.com';</script>";
+            echo "<script>location.href='https://www.naver.com';</script>"; // 리디렉션
+          }
+          else
+          {
+            echo "<script>alert('Not permmited.');</script>";
+            echo "<script>location.href='../login.html';</script>";
+          }
         }
         else
         {

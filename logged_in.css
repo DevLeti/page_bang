@@ -35,7 +35,7 @@
   float: left;
   width: 850px;
   background-color : red;
-  padding : 150px 0px;
+  padding : 120px 0px;
 }
 
 ul
@@ -60,4 +60,13 @@ li
   margin-left : auto;
   margin-right : auto;
   font-size : 15px;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+
+}
+
+tr, td
+{
+  border: 1px solid #444444;
+  padding: 10px;
 }

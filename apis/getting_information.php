@@ -8,21 +8,16 @@ if(mysqli_connect_errno())
 $table_name = "user";
 $get_info = "SELECT `name`, `password`, `phone`, `email`,`permission` FROM `user` WHERE 1";
 $result = mysqli_query($db, $get_info);
-//$row=mysqli_fetch_array($result);
-
-$get_info_only_id = "SELECT `name` FROM `user` WHERE 1";
-$only_name = mysqli_query($db, $get_info_only_id);
-$total_name = mysqli_num_rows($only_name);
-$row_count = $total_name;
-$col_count = 5;
 
 
 echo "<script>document.getElementById('information_table').innerHTML=
-'<tr><td>名字</td><td>电话号码</td><td>邮箱</td><td>允许状态</td><td>状态变更</td><td>删除</td></tr>";
+'<tr><td>名字</td><td>电话号码</td><td>邮箱</td><td>登录允许状态</td><td>状态变更</td><td>删除</td></tr>";
+$row = mysqli_fetch_array($result, MYSQL_BOTH);//어드민인 devleti는 목록에 안나오게
 
-while($row = mysqli_fetch_array($result, MYSQL_BOTH))
+while($row[0] != "") //이름이 ""이면 break;
 {
-  echo "<tr><td>$row[0]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td></tr>";
+  echo "<tr><td>$row[0]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td></td><td></td></tr>";
+  $row = mysqli_fetch_array($result, MYSQL_BOTH);
 }
   echo "';</script>";
 

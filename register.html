@@ -3,7 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Register</title>
+    <?php
+      include("./apis/getting_name.php");
+    ?>
     <script>
+
+
+      function namecheck()
+      {
+        var name_input = document.getElementById('input_id').value
+        var name_result = false;
+        for (var i = 0; i<name_array.length; i++)
+        {
+          if(name_array[i] == name_input)
+          {
+            alert('重复！ 输入别的用户名！');
+            document.getElementById('input_id').value = "";
+            name_result = false;
+            break;
+          }
+          else
+          {
+              if (name_input.length < 5)
+              {
+                alert('用户名太短了！');
+                name_result = false;
+                return 0;
+              }
+
+            alert('用户名OK！');
+            name_result = true;
+            return 0;
+          }
+        }
+      }
       function pwcheck()
       {
         var pw1 = document.getElementById("input_pw").value
@@ -18,6 +51,7 @@
         }
       }
 
+      /*
       function check_space()
       {
         var id_input = document.getElementById("input_id").value
@@ -34,6 +68,8 @@
           document.getElementById("id_space_result").innerHTML = "用户名OK！"
         }
       }
+
+      */
         function check_pw_length()
         {
           var pw_input = document.getElementById("input_pw").value
@@ -59,13 +95,14 @@
       <br>
       <p style="text-align : center; font-size : 150%; float : bold;">GoGGLE注册</p>
       <br>
+
       <form method="POST" action="apis/add_user.php">
       <p id ="id_space_result", style ="text-align : center"></p>
       <table style ="margin-left: auto; margin-right: auto;">
         <tr>
           <td><span style="font-size : 120%;">用户名 : </span></td>
-          <td><input type="string" id = "input_id" name = "register_id" style="width : 150px;" onblur = "check_space()"></td>
-          <td><button name = "check_id">重复确认</button></td>
+          <td><input type="string" id = "input_id" name = "register_id" style="width : 150px;" onblur = "namecheck()"></td>
+          <!--<td><button name = "check_id" onclick = "">重复确认</button></td>-->
         </tr>
         <tr>
           <td><span style="font-size : 120%;">密码 : </span></td>
@@ -100,6 +137,7 @@
         </tr>
       </table>
     </form>
+
       <p style="text-align : center; font-size : 70%;">©2018 GoGGLE 使用沟谷前必读 意见反馈 韩ICP证032152号  韩公网安备1101423000001号 </p>
 
     </div>
