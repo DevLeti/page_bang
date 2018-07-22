@@ -9,10 +9,12 @@ $table_name = "user";
 $get_info = "SELECT `name`, `password`, `phone`, `email`,`permission` FROM `user` WHERE 1";
 $result = mysqli_query($db, $get_info);
 
+$row = mysqli_fetch_array($result, MYSQL_BOTH);//어드민인 devleti는 목록에 안나오게
+$row = mysqli_fetch_array($result, MYSQL_BOTH);
+
 
 echo "<script>document.getElementById('information_table').innerHTML=
 '<tr><td>名字</td><td>电话号码</td><td>邮箱</td><td>登录允许状态</td><td>状态变更</td><td>删除</td></tr>";
-$row = mysqli_fetch_array($result, MYSQL_BOTH);//어드민인 devleti는 목록에 안나오게
 
 while($row[0] != "") //이름이 ""이면 break;
 {
