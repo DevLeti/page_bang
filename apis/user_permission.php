@@ -11,6 +11,9 @@ $table_name = "user";
 mysqli_query(UPDATE `user` SET `permission`="TRUE" WHERE `name` = $name , `permission` = "FALSE";);//유저가 false 상태면 true 상태로
 mysqli_query(UPDATE `user` SET `permission`="TRUE" WHERE `name` = $name , `permission` = "TRUE";);//유저가 true 상태면 false 상태로 바꾸기
 
+
+
+
 /*
 UPDATE `user` SET `permission`="TRUE" WHERE `name` = $name , `permission` = "FALSE"; //유저가 false 상태면 true 상태로
 UPDATE `user` SET `permission`="FALSE" WHERE `name` = $name, `permission` = "TRUE" ; //유저가 true 상태면 false 상태로 바꾸기
